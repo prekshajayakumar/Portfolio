@@ -4,10 +4,7 @@ import { motion, type Variants } from "framer-motion";
 
 const container: Variants = {
   hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.06 },
-  },
+  show: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.08 } },
 };
 
 const item: Variants = {
@@ -16,52 +13,61 @@ const item: Variants = {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] as const },
+    transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[78vh] overflow-hidden pt-24 sm:pt-28 lg:pt-32 pb-16">
-      {/* subtle glow */}
-      <div className="pointer-events-none absolute inset-x-0 top-10 mx-auto h-72 w-[60rem] max-w-[92vw] rounded-full bg-sky-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute inset-x-0 -bottom-24 mx-auto h-72 w-[60rem] max-w-[92vw] rounded-full bg-blue-500/10 blur-3xl" />
+    <section className="relative min-h-[82vh] overflow-hidden">
+      <div className="mx-auto flex min-h-[82vh] w-full max-w-7xl items-center px-6 py-24 sm:px-10 lg:px-16">
+        <div className="pointer-events-none absolute left-1/2 top-20 h-72 w-[52rem] -translate-x-1/2 rounded-full bg-sky-500/10 blur-3xl" />
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="mx-auto flex max-w-4xl flex-col items-center text-center"
-      >
-        {/* big name */}
-        <motion.h1
-          variants={item}
-          className="text-balance text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl"
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="relative z-10 max-w-5xl"
         >
-          <span className="bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">
+          <motion.p
+            variants={item}
+            className="text-xs uppercase tracking-[0.28em] text-sky-300/80 sm:text-sm"
+          >
+            AI Engineer • Full Stack Developer • Product Builder
+          </motion.p>
+
+          <motion.h1
+            variants={item}
+            className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl"
+          >
             Preksha Jayakumar
-          </span>
-        </motion.h1>
+          </motion.h1>
 
-        {/* role */}
-        <motion.h2 variants={item} className="mt-5 text-lg sm:text-xl text-white/80">
-          <span className="font-semibold text-white/90">AI Engineer</span>
-          <span className="mx-3 text-white/25">•</span>
-          <span className="text-white/70">GenAI (RAG + LLMs)</span>
-          <span className="mx-3 text-white/25">•</span>
-          <span className="text-white/70">Computer Vision</span>
-        </motion.h2>
+          <motion.h2
+            variants={item}
+            className="mt-7 max-w-4xl text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
+          >
+            I build AI tools and web products{" "}
+            <span className="bg-gradient-to-r from-sky-300 via-sky-400 to-blue-500 bg-clip-text text-transparent">
+              that solve real problems.
+            </span>
+          </motion.h2>
 
-        {/* pitch */}
-        <motion.p
-          variants={item}
-          className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/65 sm:text-lg"
-        >
-          I build intelligent systems that feel like products — citation-backed RAG assistants,
-          real-time vision models, and AI demos that are measurable, deployable, and cleanly
-          engineered.
-        </motion.p>
-      </motion.div>
+          <motion.p
+            variants={item}
+            className="mt-6 max-w-3xl text-pretty text-base leading-relaxed text-white/65 sm:text-lg"
+          >
+            I turn ideas into working software — from RAG assistants and intelligent chatbots to
+            computer vision demos, automation workflows, dashboards, and deployable AI applications.
+          </motion.p>
+
+          <motion.div variants={item} className="mt-7 flex flex-wrap gap-3 text-sm text-white/45">
+            <span>Bangalore, India</span>
+            <span className="self-center h-1 w-1 rounded-full bg-white/25" />
+            <span>Freelance AI, web, and automation projects</span>
+          </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }

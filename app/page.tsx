@@ -7,9 +7,9 @@ import { Stagger, StaggerItem } from "@/components/Stagger";
 
 function SectionHeader({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
-    <div className="px-4 sm:px-6 lg:px-12">
+    <div className="mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-16">
       <p className="text-xs uppercase tracking-[0.28em] text-sky-300/80">{eyebrow}</p>
-      <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl text-white">
+      <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
         {title}
       </h2>
     </div>
@@ -18,7 +18,7 @@ function SectionHeader({ eyebrow, title }: { eyebrow: string; title: string }) {
 
 function SectionBody({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mt-8 px-4 sm:px-6 lg:px-12">
+    <div className="mx-auto mt-8 w-full max-w-7xl px-6 sm:px-10 lg:px-16">
       <div className="max-w-4xl text-white/75 leading-relaxed">{children}</div>
     </div>
   );
